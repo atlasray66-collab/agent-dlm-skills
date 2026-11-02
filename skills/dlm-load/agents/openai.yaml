@@ -1,0 +1,7 @@
+interface:
+  display_name: "DLM Load"
+  short_description: "锁定目标仓库并加载最小充分的 DLM、任务与源码上下文"
+  default_prompt: "Use $dlm-load to resolve one repository, load only the context needed for the next material decision, avoid repeated Session Init, and confirm a Frozen baseline before any already-authorized mutation."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "DLM Plan"
+  short_description: "把需求转为目标导向的基线、任务、证据和停止线"
+  default_prompt: "Use $dlm-plan to verify repository truth, define a Draft Acceptance Baseline and shortest causal task path, match evidence to claims, and materialize only authorized consumer-relevant DLM work."
+
+policy:
+  allow_implicit_invocation: true

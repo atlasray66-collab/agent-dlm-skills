@@ -1,0 +1,7 @@
+interface:
+  display_name: "DLM Build"
+  short_description: "为任意仓库建立或迁移独立、可验证的 DLM 知识与任务契约"
+  default_prompt: "Use $dlm-build to initialize or incrementally maintain this repository's independent doc_llm only for the requested state or real consumers, with a Frozen write baseline and claim-relevant validation."
+
+policy:
+  allow_implicit_invocation: true

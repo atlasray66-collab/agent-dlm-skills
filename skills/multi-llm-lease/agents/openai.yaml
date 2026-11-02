@@ -1,0 +1,7 @@
+interface:
+  display_name: "COORD Multi-LLM Lease (Gemini 4 & Multi-Thread)"
+  short_description: "Gemini 4 分级 + Codex 多对话并行开发 + 自动 Reflect 验证与 Sediment 证据写回"
+  default_prompt: "Use $multi-llm-lease to coordinate parallel tasks via Codex independent new threads (create_thread) rather than subagents, adapt task grading (D0-D3) to Gemini 4 models, print the explicit task banner (e.g. S001 1/58 3D平面拟合导入) with total/completed counts before starting each task, and enforce automatic $dlm-reflect verification followed by $dlm-sediment evidence write-back upon sub-task completion."
+
+policy:
+  allow_implicit_invocation: true

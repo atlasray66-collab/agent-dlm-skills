@@ -1,0 +1,7 @@
+interface:
+  display_name: "DLM Close Release"
+  short_description: "按最窄授权关闭任务、验证发布，并可选执行精确路径提交"
+  default_prompt: "Use $dlm-close-release in the narrowest Frozen mode, synchronize DLM only for a real trigger or consumer, and keep engineering, release, Git, deployment, artifact-copy, and field states separate."
+
+policy:
+  allow_implicit_invocation: false

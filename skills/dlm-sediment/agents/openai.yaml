@@ -1,0 +1,7 @@
+interface:
+  display_name: "DLM Sediment"
+  short_description: "按真实消费者一次性同步已证实的 DLM 知识与状态"
+  default_prompt: "Use $dlm-sediment only when the user, an accepted contract, or a real consumer needs knowledge synchronization after the result stabilizes; reuse existing evidence and do not stage, release, or reopen engineering validation."
+
+policy:
+  allow_implicit_invocation: true

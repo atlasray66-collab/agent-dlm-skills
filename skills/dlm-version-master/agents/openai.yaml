@@ -1,0 +1,7 @@
+interface:
+  display_name: "DLM Version Master"
+  short_description: "面向任意 .NET 仓库的内部规则自动版本判定、Release 构建验证及自动 Git 提交与远端推送"
+  default_prompt: "Use $dlm-version-master to automatically decide whether and how to bump module versions from internal source-hash and semantic rules, verify required Release outputs when bumped, and commit (with a detailed message covering 修改范围, 对应版本, 怎么改的, and 为什么改的) and push the exact allowlisted scope to the remote branch."
+
+policy:
+  allow_implicit_invocation: true

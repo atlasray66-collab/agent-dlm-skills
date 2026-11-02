@@ -1,0 +1,7 @@
+interface:
+  display_name: "DLM Reflect"
+  short_description: "按基线和风险复核关键假设、证据与完成声明"
+  default_prompt: "Use $dlm-reflect only when review is requested, contract-required, or materially risk-justified; measure accepted criteria, keep unsupported findings Advisory, and allow stop-verified without mandatory sediment."
+
+policy:
+  allow_implicit_invocation: true
