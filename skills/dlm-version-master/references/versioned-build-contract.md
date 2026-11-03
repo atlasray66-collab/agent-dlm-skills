@@ -142,3 +142,8 @@ For every changed public module, verify the expected output identity and version
 ```
 
 Also run repository tests and hash/package checks declared by the profile or required by a demonstrated material output risk. Missing or mismatched required metadata blocks the affected release claim and prevents Git commit/push. Unrelated pre-existing checks, administrative records, and reviewer preferences do not silently expand the Frozen release criteria.
+
+## Dual-Fingerprint Build Manifest & Binary Archive Contract
+
+- Generate `build/versioning/generated/build-manifest.json` via `scripts/dlm_version_master.py manifest` so both Managed (`.csproj`) and C++ Native (`CMakeLists.txt`) modules expose unified `version`, `sourceRevision`, `isDirty`, `buildId`, `builtAt`, `outputSha256`, and `compatibilityPolicy` fields.
+- Keep compiled `.dll`/`.exe`/`.pdb` history in a dedicated Binary Archive repository (`release.binary_archive_repo` in `doc_llm/dlm.json`) synchronized via `scripts/dlm_version_master.py archive`.

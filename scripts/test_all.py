@@ -16,6 +16,7 @@ SUITES = (
     "skills/_shared/scripts",
     "skills/multi-llm-lease/tests",
     "skills/multi-llm-lease/scripts",
+    "skills/dlm-version-master/scripts",
 )
 
 

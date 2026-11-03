@@ -111,6 +111,19 @@ After build, validate only the claims required by the Frozen release baseline an
 
 If required metadata, tests, hashing, or output identity cannot be verified, the corresponding release claim is incomplete and blocks the Git commit/push phase. Report unrelated pre-existing or administrative failures separately; they do not invalidate a compliant output unless material impact is demonstrated.
 
+## Dual-Fingerprint Build Manifest & Dedicated Binary Archive Repository
+
+To prevent source repository bloat while keeping full historical binary rollback and "About" dialog introspection (Managed + C++ Native Engine):
+
+1. **Build Manifest (`build/versioning/generated/build-manifest.json`)**:
+   - Generate or refresh `build-manifest.json` via `scripts/dlm_version_master.py manifest` after version evaluation or build verification.
+   - Each module entry records: `module`, `displayName`, `description`, `category` (`Core & Workbench`, `Native Engine`, `Plugins`, `VTools`, `Canvas`), `kind` (`managed` / `native`), `artifact` filename, `version` (`A.B.C`), `builtAt`, `sourceRevision` (short hash `abc...def0`), `isDirty` (boolean flagging local working-tree modifications), `buildId` (`408...5a54`), `outputSha256`, and `compatibilityPolicy` (e.g., `buildInfoApi=1, abiPolicy=major-minor` or `semver=major-minor`).
+   - Supports one-click UI inspection, "Copy All", and diagnostic export without embedding private machine paths or emails inside public PE binary headers.
+
+2. **Dedicated Binary History Archive Repository (`release.binary_archive_repo`)**:
+   - Never store compiled `.dll`, `.exe`, `.pdb`, or large binary outputs inside the primary source repository.
+   - When `release.binary_archive_repo` is configured in `doc_llm/dlm.json` (or `version-rules.json`), invoke `scripts/dlm_version_master.py archive` after verifying build outputs to copy verified binaries + `build-manifest.json` + `versions.json` into the dedicated Binary Archive repository and record a matching 4-part structured log.
+
 ## Mandatory Git commit and remote push phase
 
 Follow [Git synchronization](references/git-sync.md) on every direct invocation of `dlm-version-master` (unless explicitly suppressed by the user or running as a composed child without Git delegation):
